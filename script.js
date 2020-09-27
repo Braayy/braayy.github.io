@@ -3,13 +3,15 @@ Vue.component('project', {
 
     template: `
         <a v-bind:href="project.url" target="_blank">
-            <article>
-                <img v-bind:src="project.imageUrl" />    
-                <header>
+            <div class="project">
+                <img v-bind:src="$root.getImageUrl(project.name, project.imageName)" />    
+                <div class="header">
                     <h1>{{ project.name }}</h1>
                     <h2>{{ project.description }}</h2>
-                </header>
-            </article>
+                    <br />
+                    <a v-bind:href="$root.getDownloadUrl(project.name, project.latestVersion)">Download</a>
+                </div>
+            </div>
         </a>
     `
 });
@@ -21,33 +23,46 @@ const vue = new Vue({
             {
                 name: 'bBans',
                 description: 'A simple ban/mute plugin',
-                imageUrl: 'https://raw.githubusercontent.com/Braayy/bbans/master/gifs/ban.gif',
-                url: 'https://github.com/braayy/bBans'
+                imageName: 'ban.gif',
+                url: 'https://github.com/braayy/bBans',
+                latestVersion: '1.0'
             },
             {
                 name: 'bPets',
                 description: 'A pets plugin for Paper 1.12',
-                imageUrl: 'https://raw.githubusercontent.com/Braayy/bpets/master/gifs/pets.gif',
-                url: 'https://github.com/braayy/bPets'
+                imageName: 'pets.gif',
+                url: 'https://github.com/braayy/bPets',
+                latestVersion: '1.0'
             },
             {
                 name: 'bLobby',
                 description: 'A lobby plugin for Paper 1.12',
-                imageUrl: 'https://raw.githubusercontent.com/Braayy/blobby/master/gifs/lobby.gif',
-                url: 'https://github.com/braayy/bLobby'
+                imageName: 'lobby.gif',
+                url: 'https://github.com/braayy/bLobby',
+                latestVersion: '1.0'
             },
             {
                 name: 'bChat',
                 description: 'A chat management plugin for Paper 1.12',
-                imageUrl: 'https://raw.githubusercontent.com/Braayy/bchat/master/gifs/chat_regional.gif',
-                url: 'https://github.com/braayy/bChat'
+                imageName: 'chat_regional.gif',
+                url: 'https://github.com/braayy/bChat',
+                latestVersion: '1.0'
             },
             {
                 name: 'bSpawner',
                 description: 'A simple spawner command plugin',
-                imageUrl: 'https://raw.githubusercontent.com/Braayy/bspawner/master/gifs/spawner.gif',
-                url: 'https://github.com/braayy/bSpawner'
+                imageName: 'spawner.gif',
+                url: 'https://github.com/braayy/bSpawner',
+                latestVersion: '1.0'
             }
         ]
+    },
+    methods: {
+        getImageUrl(name, imageName) {
+            return `https://raw.githubusercontent.com/Braayy/${name}/master/gifs/${imageName}`
+        },
+        getDownloadUrl(name, latestVersion) {
+            return `https://github.com/Braayy/${name}/releases/download/v${latestVersion}/${name}-${latestVersion}.jar`
+        }
     }
 });
