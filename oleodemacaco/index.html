@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario Oficial do Óleo de Macaco</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+
+            background: #272727;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            text-align: center;
+        }
+
+        .text {
+            font-size: 50px;
+            color: rgb(212, 212, 212);
+        }
+
+        .counter {
+            font-size: 200px;
+            color: rgb(212, 212, 212);
+            border-top: 1px rgb(212, 212, 212) solid;
+            border-bottom: 1px rgb(212, 212, 212) solid;
+        }
+
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="forceHorario(this)">Forçar Horario Oficial</button>
+
+    <div class="container">
+        <p class="text">Faltam</p>
+        <p class="counter"></p>
+        <p class="text">para o HORARIO OFICIAL DO ÓLEO DE MACACO</p>
+    </div>
+
+    <audio src="oleo.mp3" class="oleo"></audio>
+    <audio src="monki.mp3" class="monki"></audio>
+
+    <script>
+        Number.prototype.pad = function() {
+            return String(this).padStart(2, '0')
+        }
+
+        const counter = document.querySelector('.counter')
+        const container = document.querySelector('.container')
+        const audioOleo = document.querySelector('.oleo')
+        const audioMonki = document.querySelector('.monki')
+
+        audioMonki.volume = 0.07
+
+        audioOleo.onended = function() {
+            if (inHorarioOficial) this.play()
+        }
+
+        audioMonki.onended = function() {
+            if (inHorarioOficial) this.play()
+        }
+
+        let inHorarioOficial = false;
+        let updateTimer = null;
+
+        function forceHorario(button) {
+            clearInterval(updateTimer)
+
+            inHorarioOficial = true
+
+            document.body.style.background = 'url(\'https://media.tenor.com/images/15c52fa732da36b258c4d58079780468/tenor.gif\')'
+
+            container.style.display = 'none'
+            button.style.display = 'none'
+
+            audioOleo.play()
+            audioMonki.play()
+        }
+
+        function update() {
+            const date = new Date()
+
+            const hours = (date.getUTCHours() - 3)
+            const minutes = date.getUTCMinutes()
+            const seconds = date.getUTCSeconds()
+
+            const diffHours = 24 - hours
+            const diffMinutes = 60 - minutes
+            const diffSeconds = 60 - seconds
+            
+            counter.innerHTML = `${diffHours.pad()}h ${diffMinutes.pad()}m ${diffSeconds.pad()}s`
+
+            inHorarioOficial = (hours == 0 && minutes == 0)
+
+            if (inHorarioOficial) {
+                document.body.style.background = 'url(\'https://media.tenor.com/images/15c52fa732da36b258c4d58079780468/tenor.gif\')'
+
+                container.style.display = 'none';
+
+                audioOleo.play()
+                audioMonki.play()
+            } else {
+                document.body.style.background = '#272727';
+                container.style.display = 'inherit';
+
+                audioOleo.pause()
+                audioMonki.pause()
+            }
+        }
+
+        update()
+
+        updateTimer = setInterval(() => {
+            update()
+        }, 1000)
+    </script>
+</body>
+</html>
