@@ -1,0 +1,24 @@
+:root {
+  font-size: 20px;
+
+  --primary: #232931;
+  --secondary-rgb: 57, 62, 70;
+  --secondary: rgb(var(--secondary-rgb));
+  --action: #4ECCA3;
+  --text: #EEEEEE;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+  min-height: 100vh;
+  width: 100%;
+
+  background: var(--primary);
+  color: var(--text);
+}
