@@ -25,6 +25,8 @@ $$ f(x, y) = (1.0, 1.0, 1.0, 1.0 - x) $$
 
 But normally shaders are not defined like those pure math function, they are defined as a algorithm, a sequence of instructions, one of which will set the color of the pixel.
 
+Another thing is that the colors that the Human Shader will use is a little diferent from the normal one. Instead of going from 0 to 1, it goes from 0 to 255, and no alpha component is needed because we will not use any transparency. So a color in Human Shader is something like `(255, 51, 196)`.
+
 ## What do a graphics card do?
 
 After understanding what a shader is, understand what your graphics card do is simple. It just executes the shader function for each pixel of the screen at the same time.
@@ -52,18 +54,18 @@ This operation is simple, just replace the value of $a$ with the value of $b$.
 
 Example:
 
-$ a=3 $
+$$ a=3 $$
 
-$ a \rightarrow a + 2 $
+$$ a \rightarrow a + 2 $$
 
 At the end $a$ will be equal to 5.
 
 <details>
   <summary>If you are wandering about why use this operator and not just a equal sign, expand this</summary>
 
-  $ a=3 $
+  $$ a=3 $$
 
-  $ a = a + 2 $
+  $$ a = a + 2 $$
 
   Yes, this appers to be correct, but it is not. You are defining a value based on the value it self.
   , but this only make sense in programming.
@@ -72,25 +74,25 @@ At the end $a$ will be equal to 5.
 
   This is a valid recursion formula:
 
-  $ f(n + 1) = f(n) + 1 $
+  $$ f(n + 1) = f(n) + 1 $$
 
   But only valid if you define a base case like:
 
-  $ f(0) = 1 $
+  $$ f(0) = 1 $$
 
   Then you can infer the other value using the recursion formula
 
-  $ n = 0 $
+  $$ n = 0 $$
 
-  $ f(0 + 1) = f(0) + 1 $
+  $$ f(0 + 1) = f(0) + 1 $$
 
-  $ f(1) = 1 + 1 $
+  $$ f(1) = 1 + 1 $$
 
-  $ f(1) = 2 $
+  $$ f(1) = 2 $$
 
   This is a invalid recursion formula:
 
-  $ a = a + 2 $
+  $$ a = a + 2 $$
 
   The difference is simple, the valid one you define the value of one parameter based on the value of another parameter, the invalid one you define the value based on the value itself, but it doesn't make sense.
 </details>
@@ -103,9 +105,9 @@ If you want to remove 2 digits from a number, get the first removed number, from
 
 Examples:
 
-$ 12345\ |\ 2 = 123 $
+$$ 12345\ |\ 2 = 123 $$
 
-$ 12367\ |\ 2 = 124 $
+$$ 12367\ |\ 2 = 124 $$
 
 So after understanding those operators, let calculate one pixel!
 
@@ -113,85 +115,85 @@ Choose a pixel coordinate, i will choose 0, 0. Then follow the instructions in t
 
 - A2
 
-  $ u = x - 36 $
+  $$ u = x - 36 $$
 
-  $ u = 0 - 36 $
+  $$ u = 0 - 36 $$
 
-  $ u = -36 $
+  $$ u = -36 $$
 
 <br>
 
 - A3
 
-  $ v = 18 - y $
+  $$ v = 18 - y $$
 
-  $ v = 18 - 0 $
+  $$ v = 18 - 0 $$
 
-  $ v = 18 $
+  $$ v = 18 $$
 
 <br>
 
 - A4
 
-  $ h = u^2+v^2 $
+  $$ h = u^2+v^2 $$
 
-  $ h = (-36)^2+18^2 $
+  $$ h = (-36)^2+18^2 $$
 
-  $ h = 1620 $
+  $$ h = 1620 $$
 
 <br>
 
 - D1
 
-  $ c = x + 4 \cdot y $
+  $$ c = x + 4 \cdot y $$
 
-  $ c = 0 + 4 * 0 $
+  $$ c = 0 + 4 * 0 $$
 
-  $ c = 0 $
+  $$ c = 0 $$
 
 <br>
 
 - D2
 
-  $ R = 132+c $
+  $$ R = 132+c $$
 
-  $ R = 132+0 $
+  $$ R = 132+0 $$
 
-  $ R = 132 $
+  $$ R = 132 $$
 
 <br>
 
 - D3
 
-  $ R = 192+c $
+  $$ R = 192+c $$
 
-  $ R = 192+0 $
+  $$ R = 192+0 $$
 
-  $ R = 192 $
+  $$ R = 192 $$
 
 <br>
 
 - E1
 
-  $ R = 132 $
+  $$ R = 132 $$
 
 <br>
 
 - E2
 
-  $ B = 192 $
+  $$ B = 192 $$
 
 <br>
 
 - E3
 
-  $ G = (7 \cdot R + 3 \cdot B)\ |\ 1  $
+  $$ G = (7 \cdot R + 3 \cdot B)\ |\ 1  $$
 
-  $ G = (7 \cdot 132 + 3 \cdot 192)\ |\ 1  $
+  $$ G = (7 \cdot 132 + 3 \cdot 192)\ |\ 1  $$
 
-  $ G = 1500\ |\ 1  $
+  $$ G = 1500\ |\ 1  $$
 
-  $ G = 150 $
+  $$ G = 150 $$
 
 Yoah! We did it. The final color is (132, 150, 192). This pixel was easy, cuz we jumped right to the Section D, if we've choosen another pixel probabily we would have a harder time.
 
@@ -219,5 +221,3 @@ After all this work, all i can say is that it was fun. Unfortunately i couldn't 
 This project was an analogy where the humanity is the graphics card and each people is a processing unit of a graphics card, where they collectively can calculate a bunch of pixels at the same time.
 
 The creator of the Human Shader project, [Inigo Quilez](https://twitter.com/iquilezles){:target="_blank"}, is creating a video about this project at their's [YouTube Channel](), check it out to see the creator's perpective of this project.
-
-$$ Testing(x) = x $$
