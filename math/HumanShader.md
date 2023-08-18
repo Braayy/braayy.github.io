@@ -214,4 +214,4 @@ After all this work, all i can say is that it was fun. Unfortunately i couldn't 
 
 This project was an analogy where the humanity is the graphics card and each people is a processing unit of a graphics card, where they collectively can calculate a bunch of pixels at the same time.
 
-The creator of the Human Shader project, [Inigo Quilez](https://twitter.com/iquilezles){:target="_blank"}, is creating a video about this project at their's [YouTube Channel](), check it out to see the creator's perpective of this project.
+The creator of the Human Shader project, [Inigo Quilez](https://twitter.com/iquilezles){:target="_blank"}, is creating a video about this project at their's [YouTube Channel](https://www.youtube.com/c/InigoQuilez), check it out to see the creator's perpective of this project.
