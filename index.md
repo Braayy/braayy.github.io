@@ -1,6 +1,6 @@
 ---
 title: Brayan Gomes
-description: A place to show my projects and hobbies
+description: A place where i write about programming and math
 ---
 
 Hi there! I'm Brayan Gomes, a 21 year-old who likes programming and math.
@@ -10,7 +10,7 @@ Sometimes both are used to create impressive things in areas like graphics progr
 My hobbies are programming, mainly in Java, Kotlin and TypeScript, creating everything from Minecraft Mods/Plugins to WebApps.
 
 <br>
-Here are a list of interesting things:
+Here are some interesting things:
 
 - [Human Shader](math/HumanShader.md) by [Inigo Quilez](https://twitter.com/iquilezles){:target="_blank"}
 
