@@ -197,24 +197,18 @@ Choose a pixel coordinate, i will choose 0, 0. Then follow the instructions in t
 
 Yoah! We did it. The final color is (132, 150, 192). This pixel was easy, cuz we jumped right to the Section D, if we've choosen another pixel probabily we would have a harder time.
 
-Now we just need to do this for the remaining 2729 pixels, easy job, right? Well, the goal of the Human Shader is multiple people calculate pixel colors at the same time.
+Now we just need to do this for the remaining 2729 pixels, easy job, right? Well, the goal of the Human Shader is multiple people calculating pixel colors at the same time.
 
 After 72 hours from the launch of the project, the final shader is this one:
-<details>
-  <summary>Final Result</summary>
 
-  ![Final Result](/assets/final_result.png)
-</details>
+![Final Result](/assets/final_result.png)
 
 On the website, you can slide across the timeline to see each pixel being calculated.
 
 <br>
 I've coded the shader algorithm and generated the image. This was the result:
-<details>
-  <summary>Final Result by a Real Computer</summary>
 
-  ![Final Result by Real Computer](/assets/final_result_computer.png)
-</details>
+![Final Result by Real Computer](/assets/final_result_computer.png)
 
 After all this work, all i can say is that it was fun. Unfortunately i couldn't claim a pixel to calculate it, but i've choosen a pixel that was the wrong color and i calculated it with the right color!
 
