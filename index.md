@@ -1,9 +1,5 @@
----
-title: Brayan Gomes
----
-
 # Brayan Gomes
 
-Just Testing
+Hi there! I will place some links for my projects and articles about curious thing i found.
 
-[Testing](Test.md)
+[Human Shader](math/HumanShader.md)
