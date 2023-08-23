@@ -48,7 +48,7 @@ Jokes aside, we are in the role of a graphics card right? So we already gathered
 
 To follow this instructions, 2 new operations were introduced.
 
-### $a \rightarrow b$
+### Replace Operator
 
 This operation is simple, just replace the value of $a$ with the value of $b$.
 
@@ -97,7 +97,7 @@ At the end $a$ will be equal to 5.
   The difference is simple, the valid one you define the value of one parameter based on the value of another parameter, the invalid one you define the value based on the value itself, but it doesn't make sense.
 </details>
 
-### $a\ |\ n$
+### Integer Rounding Operator
 
 This one is simple as well. You will remove the n last digits from a, but with **rounding**. You need to knwo how round works, so let me explain.
 
